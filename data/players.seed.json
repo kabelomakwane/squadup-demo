@@ -1,0 +1,1649 @@
+[
+  {
+    "name": "Thibaut Courtois",
+    "position": "GK",
+    "overall": 90,
+    "pace": 53,
+    "shooting": 13,
+    "passing": 71,
+    "defending": 89
+  },
+  {
+    "name": "Alisson Becker",
+    "position": "GK",
+    "overall": 89,
+    "pace": 50,
+    "shooting": 13,
+    "passing": 65,
+    "defending": 92
+  },
+  {
+    "name": "Ederson Moraes",
+    "position": "GK",
+    "overall": 87,
+    "pace": 48,
+    "shooting": 6,
+    "passing": 54,
+    "defending": 86
+  },
+  {
+    "name": "Marc-Andre ter Stegen",
+    "position": "GK",
+    "overall": 87,
+    "pace": 39,
+    "shooting": 6,
+    "passing": 62,
+    "defending": 89
+  },
+  {
+    "name": "Manuel Neuer",
+    "position": "GK",
+    "overall": 85,
+    "pace": 38,
+    "shooting": 19,
+    "passing": 51,
+    "defending": 86
+  },
+  {
+    "name": "Jan Oblak",
+    "position": "GK",
+    "overall": 88,
+    "pace": 42,
+    "shooting": 10,
+    "passing": 67,
+    "defending": 90
+  },
+  {
+    "name": "Gianluigi Donnarumma",
+    "position": "GK",
+    "overall": 87,
+    "pace": 41,
+    "shooting": 17,
+    "passing": 62,
+    "defending": 89
+  },
+  {
+    "name": "Emiliano Martinez",
+    "position": "GK",
+    "overall": 86,
+    "pace": 44,
+    "shooting": 6,
+    "passing": 67,
+    "defending": 87
+  },
+  {
+    "name": "Mike Maignan",
+    "position": "GK",
+    "overall": 86,
+    "pace": 39,
+    "shooting": 7,
+    "passing": 61,
+    "defending": 88
+  },
+  {
+    "name": "Andre Onana",
+    "position": "GK",
+    "overall": 83,
+    "pace": 39,
+    "shooting": 9,
+    "passing": 66,
+    "defending": 84
+  },
+  {
+    "name": "David de Gea",
+    "position": "GK",
+    "overall": 82,
+    "pace": 39,
+    "shooting": 11,
+    "passing": 57,
+    "defending": 82
+  },
+  {
+    "name": "Kepa Arrizabalaga",
+    "position": "GK",
+    "overall": 79,
+    "pace": 44,
+    "shooting": 12,
+    "passing": 56,
+    "defending": 80
+  },
+  {
+    "name": "Hugo Lloris",
+    "position": "GK",
+    "overall": 80,
+    "pace": 34,
+    "shooting": 10,
+    "passing": 49,
+    "defending": 80
+  },
+  {
+    "name": "Keylor Navas",
+    "position": "GK",
+    "overall": 81,
+    "pace": 50,
+    "shooting": 7,
+    "passing": 56,
+    "defending": 81
+  },
+  {
+    "name": "Wojciech Szczesny",
+    "position": "GK",
+    "overall": 82,
+    "pace": 39,
+    "shooting": 13,
+    "passing": 58,
+    "defending": 81
+  },
+  {
+    "name": "Yann Sommer",
+    "position": "GK",
+    "overall": 84,
+    "pace": 37,
+    "shooting": 18,
+    "passing": 62,
+    "defending": 84
+  },
+  {
+    "name": "Nick Pope",
+    "position": "GK",
+    "overall": 82,
+    "pace": 48,
+    "shooting": 17,
+    "passing": 60,
+    "defending": 80
+  },
+  {
+    "name": "Aaron Ramsdale",
+    "position": "GK",
+    "overall": 80,
+    "pace": 32,
+    "shooting": 18,
+    "passing": 48,
+    "defending": 81
+  },
+  {
+    "name": "Jordan Pickford",
+    "position": "GK",
+    "overall": 81,
+    "pace": 45,
+    "shooting": 19,
+    "passing": 50,
+    "defending": 82
+  },
+  {
+    "name": "David Raya",
+    "position": "GK",
+    "overall": 83,
+    "pace": 42,
+    "shooting": 16,
+    "passing": 57,
+    "defending": 81
+  },
+  {
+    "name": "Bernd Leno",
+    "position": "GK",
+    "overall": 78,
+    "pace": 37,
+    "shooting": 19,
+    "passing": 56,
+    "defending": 77
+  },
+  {
+    "name": "Robert Sanchez",
+    "position": "GK",
+    "overall": 76,
+    "pace": 29,
+    "shooting": 11,
+    "passing": 49,
+    "defending": 74
+  },
+  {
+    "name": "Illan Meslier",
+    "position": "GK",
+    "overall": 75,
+    "pace": 36,
+    "shooting": 13,
+    "passing": 52,
+    "defending": 78
+  },
+  {
+    "name": "Sam Johnstone",
+    "position": "GK",
+    "overall": 72,
+    "pace": 41,
+    "shooting": 17,
+    "passing": 57,
+    "defending": 71
+  },
+  {
+    "name": "Karl Darlow",
+    "position": "GK",
+    "overall": 64,
+    "pace": 36,
+    "shooting": 19,
+    "passing": 44,
+    "defending": 65
+  },
+  {
+    "name": "Virgil van Dijk",
+    "position": "DEF",
+    "overall": 90,
+    "pace": 63,
+    "shooting": 35,
+    "passing": 63,
+    "defending": 92
+  },
+  {
+    "name": "Ruben Dias",
+    "position": "DEF",
+    "overall": 89,
+    "pace": 58,
+    "shooting": 39,
+    "passing": 68,
+    "defending": 90
+  },
+  {
+    "name": "Kyle Walker",
+    "position": "DEF",
+    "overall": 85,
+    "pace": 84,
+    "shooting": 38,
+    "passing": 77,
+    "defending": 86
+  },
+  {
+    "name": "Trent Alexander-Arnold",
+    "position": "DEF",
+    "overall": 88,
+    "pace": 80,
+    "shooting": 29,
+    "passing": 70,
+    "defending": 87
+  },
+  {
+    "name": "Achraf Hakimi",
+    "position": "DEF",
+    "overall": 86,
+    "pace": 79,
+    "shooting": 24,
+    "passing": 68,
+    "defending": 85
+  },
+  {
+    "name": "Antonio Rudiger",
+    "position": "DEF",
+    "overall": 87,
+    "pace": 52,
+    "shooting": 39,
+    "passing": 69,
+    "defending": 89
+  },
+  {
+    "name": "William Saliba",
+    "position": "DEF",
+    "overall": 87,
+    "pace": 54,
+    "shooting": 23,
+    "passing": 69,
+    "defending": 87
+  },
+  {
+    "name": "Josko Gvardiol",
+    "position": "DEF",
+    "overall": 85,
+    "pace": 58,
+    "shooting": 30,
+    "passing": 66,
+    "defending": 87
+  },
+  {
+    "name": "Marquinhos Correa",
+    "position": "DEF",
+    "overall": 86,
+    "pace": 59,
+    "shooting": 34,
+    "passing": 68,
+    "defending": 91
+  },
+  {
+    "name": "Alessandro Bastoni",
+    "position": "DEF",
+    "overall": 86,
+    "pace": 63,
+    "shooting": 33,
+    "passing": 58,
+    "defending": 85
+  },
+  {
+    "name": "Theo Hernandez",
+    "position": "DEF",
+    "overall": 86,
+    "pace": 87,
+    "shooting": 33,
+    "passing": 81,
+    "defending": 88
+  },
+  {
+    "name": "Andrew Robertson",
+    "position": "DEF",
+    "overall": 85,
+    "pace": 83,
+    "shooting": 38,
+    "passing": 68,
+    "defending": 86
+  },
+  {
+    "name": "Joao Cancelo",
+    "position": "DEF",
+    "overall": 85,
+    "pace": 84,
+    "shooting": 34,
+    "passing": 70,
+    "defending": 88
+  },
+  {
+    "name": "Sergio Ramos",
+    "position": "DEF",
+    "overall": 88,
+    "pace": 56,
+    "shooting": 23,
+    "passing": 66,
+    "defending": 88
+  },
+  {
+    "name": "Gerard Pique",
+    "position": "DEF",
+    "overall": 87,
+    "pace": 49,
+    "shooting": 31,
+    "passing": 64,
+    "defending": 92
+  },
+  {
+    "name": "Thiago Silva",
+    "position": "DEF",
+    "overall": 87,
+    "pace": 63,
+    "shooting": 33,
+    "passing": 70,
+    "defending": 89
+  },
+  {
+    "name": "Dani Carvajal",
+    "position": "DEF",
+    "overall": 84,
+    "pace": 84,
+    "shooting": 29,
+    "passing": 65,
+    "defending": 87
+  },
+  {
+    "name": "David Alaba",
+    "position": "DEF",
+    "overall": 85,
+    "pace": 56,
+    "shooting": 34,
+    "passing": 59,
+    "defending": 89
+  },
+  {
+    "name": "Milan Skriniar",
+    "position": "DEF",
+    "overall": 83,
+    "pace": 50,
+    "shooting": 31,
+    "passing": 69,
+    "defending": 86
+  },
+  {
+    "name": "Kalidou Koulibaly",
+    "position": "DEF",
+    "overall": 84,
+    "pace": 58,
+    "shooting": 24,
+    "passing": 69,
+    "defending": 82
+  },
+  {
+    "name": "Eder Militao",
+    "position": "DEF",
+    "overall": 83,
+    "pace": 54,
+    "shooting": 33,
+    "passing": 55,
+    "defending": 86
+  },
+  {
+    "name": "Reece James",
+    "position": "DEF",
+    "overall": 84,
+    "pace": 85,
+    "shooting": 32,
+    "passing": 69,
+    "defending": 87
+  },
+  {
+    "name": "Ben Chilwell",
+    "position": "DEF",
+    "overall": 80,
+    "pace": 70,
+    "shooting": 29,
+    "passing": 73,
+    "defending": 78
+  },
+  {
+    "name": "Lucas Hernandez",
+    "position": "DEF",
+    "overall": 82,
+    "pace": 73,
+    "shooting": 24,
+    "passing": 75,
+    "defending": 82
+  },
+  {
+    "name": "Raphael Varane",
+    "position": "DEF",
+    "overall": 85,
+    "pace": 49,
+    "shooting": 39,
+    "passing": 65,
+    "defending": 90
+  },
+  {
+    "name": "Nathan Ake",
+    "position": "DEF",
+    "overall": 79,
+    "pace": 46,
+    "shooting": 29,
+    "passing": 58,
+    "defending": 79
+  },
+  {
+    "name": "John Stones",
+    "position": "DEF",
+    "overall": 82,
+    "pace": 47,
+    "shooting": 25,
+    "passing": 57,
+    "defending": 84
+  },
+  {
+    "name": "Kieran Trippier",
+    "position": "DEF",
+    "overall": 81,
+    "pace": 73,
+    "shooting": 36,
+    "passing": 68,
+    "defending": 82
+  },
+  {
+    "name": "Alphonso Davies",
+    "position": "DEF",
+    "overall": 84,
+    "pace": 81,
+    "shooting": 37,
+    "passing": 67,
+    "defending": 82
+  },
+  {
+    "name": "Dayot Upamecano",
+    "position": "DEF",
+    "overall": 82,
+    "pace": 55,
+    "shooting": 21,
+    "passing": 59,
+    "defending": 84
+  },
+  {
+    "name": "Ibrahima Konate",
+    "position": "DEF",
+    "overall": 81,
+    "pace": 47,
+    "shooting": 28,
+    "passing": 63,
+    "defending": 79
+  },
+  {
+    "name": "Cristian Romero",
+    "position": "DEF",
+    "overall": 83,
+    "pace": 60,
+    "shooting": 21,
+    "passing": 59,
+    "defending": 82
+  },
+  {
+    "name": "Pau Torres",
+    "position": "DEF",
+    "overall": 80,
+    "pace": 51,
+    "shooting": 29,
+    "passing": 55,
+    "defending": 83
+  },
+  {
+    "name": "Aymeric Laporte",
+    "position": "DEF",
+    "overall": 82,
+    "pace": 61,
+    "shooting": 26,
+    "passing": 64,
+    "defending": 86
+  },
+  {
+    "name": "Marcos Alonso",
+    "position": "DEF",
+    "overall": 75,
+    "pace": 62,
+    "shooting": 20,
+    "passing": 57,
+    "defending": 79
+  },
+  {
+    "name": "Cesar Azpilicueta",
+    "position": "DEF",
+    "overall": 78,
+    "pace": 72,
+    "shooting": 35,
+    "passing": 72,
+    "defending": 82
+  },
+  {
+    "name": "Nordi Mukiele",
+    "position": "DEF",
+    "overall": 74,
+    "pace": 68,
+    "shooting": 19,
+    "passing": 61,
+    "defending": 75
+  },
+  {
+    "name": "Jules Kounde",
+    "position": "DEF",
+    "overall": 84,
+    "pace": 51,
+    "shooting": 34,
+    "passing": 59,
+    "defending": 85
+  },
+  {
+    "name": "Presnel Kimpembe",
+    "position": "DEF",
+    "overall": 76,
+    "pace": 58,
+    "shooting": 30,
+    "passing": 53,
+    "defending": 79
+  },
+  {
+    "name": "Benjamin Pavard",
+    "position": "DEF",
+    "overall": 79,
+    "pace": 80,
+    "shooting": 26,
+    "passing": 72,
+    "defending": 83
+  },
+  {
+    "name": "Fikayo Tomori",
+    "position": "DEF",
+    "overall": 80,
+    "pace": 53,
+    "shooting": 24,
+    "passing": 54,
+    "defending": 85
+  },
+  {
+    "name": "Marc Guehi",
+    "position": "DEF",
+    "overall": 79,
+    "pace": 47,
+    "shooting": 20,
+    "passing": 64,
+    "defending": 77
+  },
+  {
+    "name": "Levi Colwill",
+    "position": "DEF",
+    "overall": 76,
+    "pace": 58,
+    "shooting": 19,
+    "passing": 50,
+    "defending": 80
+  },
+  {
+    "name": "Ezri Konsa",
+    "position": "DEF",
+    "overall": 75,
+    "pace": 57,
+    "shooting": 33,
+    "passing": 53,
+    "defending": 79
+  },
+  {
+    "name": "Jan Vertonghen",
+    "position": "DEF",
+    "overall": 74,
+    "pace": 39,
+    "shooting": 19,
+    "passing": 56,
+    "defending": 74
+  },
+  {
+    "name": "Toby Alderweireld",
+    "position": "DEF",
+    "overall": 74,
+    "pace": 56,
+    "shooting": 32,
+    "passing": 51,
+    "defending": 75
+  },
+  {
+    "name": "Aaron Wan-Bissaka",
+    "position": "DEF",
+    "overall": 76,
+    "pace": 76,
+    "shooting": 36,
+    "passing": 62,
+    "defending": 77
+  },
+  {
+    "name": "Ben White",
+    "position": "DEF",
+    "overall": 79,
+    "pace": 78,
+    "shooting": 25,
+    "passing": 72,
+    "defending": 82
+  },
+  {
+    "name": "Gabriel Magalhaes",
+    "position": "DEF",
+    "overall": 82,
+    "pace": 61,
+    "shooting": 36,
+    "passing": 61,
+    "defending": 86
+  },
+  {
+    "name": "Wesley Fofana",
+    "position": "DEF",
+    "overall": 77,
+    "pace": 59,
+    "shooting": 35,
+    "passing": 56,
+    "defending": 75
+  },
+  {
+    "name": "Diego Carlos",
+    "position": "DEF",
+    "overall": 76,
+    "pace": 41,
+    "shooting": 26,
+    "passing": 61,
+    "defending": 79
+  },
+  {
+    "name": "Eric Dier",
+    "position": "DEF",
+    "overall": 74,
+    "pace": 48,
+    "shooting": 32,
+    "passing": 54,
+    "defending": 77
+  },
+  {
+    "name": "Phil Jagielka",
+    "position": "DEF",
+    "overall": 66,
+    "pace": 37,
+    "shooting": 23,
+    "passing": 45,
+    "defending": 70
+  },
+  {
+    "name": "Gary Cahill",
+    "position": "DEF",
+    "overall": 64,
+    "pace": 39,
+    "shooting": 16,
+    "passing": 53,
+    "defending": 63
+  },
+  {
+    "name": "Danny Batth",
+    "position": "DEF",
+    "overall": 60,
+    "pace": 41,
+    "shooting": 29,
+    "passing": 39,
+    "defending": 64
+  },
+  {
+    "name": "Craig Dawson",
+    "position": "DEF",
+    "overall": 62,
+    "pace": 37,
+    "shooting": 16,
+    "passing": 42,
+    "defending": 64
+  },
+  {
+    "name": "Ciaran Clark",
+    "position": "DEF",
+    "overall": 58,
+    "pace": 38,
+    "shooting": 12,
+    "passing": 46,
+    "defending": 60
+  },
+  {
+    "name": "Kevin De Bruyne",
+    "position": "MID",
+    "overall": 91,
+    "pace": 66,
+    "shooting": 76,
+    "passing": 96,
+    "defending": 41
+  },
+  {
+    "name": "Luka Modric",
+    "position": "MID",
+    "overall": 88,
+    "pace": 74,
+    "shooting": 73,
+    "passing": 83,
+    "defending": 46
+  },
+  {
+    "name": "Toni Kroos",
+    "position": "MID",
+    "overall": 88,
+    "pace": 59,
+    "shooting": 75,
+    "passing": 89,
+    "defending": 49
+  },
+  {
+    "name": "Bruno Fernandes",
+    "position": "MID",
+    "overall": 87,
+    "pace": 69,
+    "shooting": 71,
+    "passing": 89,
+    "defending": 39
+  },
+  {
+    "name": "Jude Bellingham",
+    "position": "MID",
+    "overall": 90,
+    "pace": 70,
+    "shooting": 60,
+    "passing": 91,
+    "defending": 53
+  },
+  {
+    "name": "Rodri Hernandez",
+    "position": "MID",
+    "overall": 91,
+    "pace": 55,
+    "shooting": 55,
+    "passing": 87,
+    "defending": 78
+  },
+  {
+    "name": "Carlos Casemiro",
+    "position": "MID",
+    "overall": 85,
+    "pace": 50,
+    "shooting": 45,
+    "passing": 87,
+    "defending": 82
+  },
+  {
+    "name": "N'Golo Kante",
+    "position": "MID",
+    "overall": 85,
+    "pace": 68,
+    "shooting": 40,
+    "passing": 84,
+    "defending": 75
+  },
+  {
+    "name": "Frenkie de Jong",
+    "position": "MID",
+    "overall": 86,
+    "pace": 75,
+    "shooting": 62,
+    "passing": 84,
+    "defending": 60
+  },
+  {
+    "name": "Pedri Gonzalez",
+    "position": "MID",
+    "overall": 87,
+    "pace": 70,
+    "shooting": 71,
+    "passing": 90,
+    "defending": 54
+  },
+  {
+    "name": "Pablo Gavi",
+    "position": "MID",
+    "overall": 83,
+    "pace": 70,
+    "shooting": 60,
+    "passing": 84,
+    "defending": 58
+  },
+  {
+    "name": "Federico Valverde",
+    "position": "MID",
+    "overall": 87,
+    "pace": 79,
+    "shooting": 66,
+    "passing": 89,
+    "defending": 62
+  },
+  {
+    "name": "Declan Rice",
+    "position": "MID",
+    "overall": 85,
+    "pace": 59,
+    "shooting": 53,
+    "passing": 85,
+    "defending": 78
+  },
+  {
+    "name": "Martin Odegaard",
+    "position": "MID",
+    "overall": 87,
+    "pace": 56,
+    "shooting": 68,
+    "passing": 90,
+    "defending": 44
+  },
+  {
+    "name": "Joshua Kimmich",
+    "position": "MID",
+    "overall": 88,
+    "pace": 80,
+    "shooting": 66,
+    "passing": 93,
+    "defending": 54
+  },
+  {
+    "name": "Ilkay Gundogan",
+    "position": "MID",
+    "overall": 85,
+    "pace": 64,
+    "shooting": 72,
+    "passing": 84,
+    "defending": 41
+  },
+  {
+    "name": "Thiago Alcantara",
+    "position": "MID",
+    "overall": 85,
+    "pace": 71,
+    "shooting": 73,
+    "passing": 82,
+    "defending": 46
+  },
+  {
+    "name": "Marco Verratti",
+    "position": "MID",
+    "overall": 86,
+    "pace": 65,
+    "shooting": 60,
+    "passing": 83,
+    "defending": 53
+  },
+  {
+    "name": "Sergej Milinkovic-Savic",
+    "position": "MID",
+    "overall": 85,
+    "pace": 77,
+    "shooting": 60,
+    "passing": 85,
+    "defending": 61
+  },
+  {
+    "name": "Jorginho Frello",
+    "position": "MID",
+    "overall": 81,
+    "pace": 60,
+    "shooting": 40,
+    "passing": 78,
+    "defending": 78
+  },
+  {
+    "name": "Fabinho Tavares",
+    "position": "MID",
+    "overall": 82,
+    "pace": 52,
+    "shooting": 38,
+    "passing": 86,
+    "defending": 69
+  },
+  {
+    "name": "Granit Xhaka",
+    "position": "MID",
+    "overall": 79,
+    "pace": 64,
+    "shooting": 40,
+    "passing": 77,
+    "defending": 65
+  },
+  {
+    "name": "Youri Tielemans",
+    "position": "MID",
+    "overall": 79,
+    "pace": 73,
+    "shooting": 57,
+    "passing": 74,
+    "defending": 57
+  },
+  {
+    "name": "James Maddison",
+    "position": "MID",
+    "overall": 82,
+    "pace": 69,
+    "shooting": 66,
+    "passing": 80,
+    "defending": 40
+  },
+  {
+    "name": "Mason Mount",
+    "position": "MID",
+    "overall": 80,
+    "pace": 69,
+    "shooting": 57,
+    "passing": 79,
+    "defending": 55
+  },
+  {
+    "name": "Christian Eriksen",
+    "position": "MID",
+    "overall": 82,
+    "pace": 58,
+    "shooting": 63,
+    "passing": 84,
+    "defending": 38
+  },
+  {
+    "name": "Paul Pogba",
+    "position": "MID",
+    "overall": 83,
+    "pace": 77,
+    "shooting": 61,
+    "passing": 87,
+    "defending": 61
+  },
+  {
+    "name": "Steven Gerrard",
+    "position": "MID",
+    "overall": 91,
+    "pace": 75,
+    "shooting": 58,
+    "passing": 95,
+    "defending": 55
+  },
+  {
+    "name": "Frank Lampard",
+    "position": "MID",
+    "overall": 90,
+    "pace": 71,
+    "shooting": 54,
+    "passing": 94,
+    "defending": 64
+  },
+  {
+    "name": "Andrea Pirlo",
+    "position": "MID",
+    "overall": 91,
+    "pace": 73,
+    "shooting": 64,
+    "passing": 90,
+    "defending": 56
+  },
+  {
+    "name": "Xavi Hernandez",
+    "position": "MID",
+    "overall": 91,
+    "pace": 63,
+    "shooting": 73,
+    "passing": 92,
+    "defending": 54
+  },
+  {
+    "name": "Andres Iniesta",
+    "position": "MID",
+    "overall": 91,
+    "pace": 77,
+    "shooting": 77,
+    "passing": 87,
+    "defending": 40
+  },
+  {
+    "name": "Zinedine Zidane",
+    "position": "MID",
+    "overall": 92,
+    "pace": 64,
+    "shooting": 72,
+    "passing": 88,
+    "defending": 41
+  },
+  {
+    "name": "Patrick Vieira",
+    "position": "MID",
+    "overall": 88,
+    "pace": 60,
+    "shooting": 47,
+    "passing": 88,
+    "defending": 73
+  },
+  {
+    "name": "Roy Keane",
+    "position": "MID",
+    "overall": 87,
+    "pace": 66,
+    "shooting": 65,
+    "passing": 86,
+    "defending": 63
+  },
+  {
+    "name": "Paul Scholes",
+    "position": "MID",
+    "overall": 87,
+    "pace": 71,
+    "shooting": 70,
+    "passing": 83,
+    "defending": 50
+  },
+  {
+    "name": "Michael Essien",
+    "position": "MID",
+    "overall": 85,
+    "pace": 77,
+    "shooting": 53,
+    "passing": 81,
+    "defending": 59
+  },
+  {
+    "name": "Yaya Toure",
+    "position": "MID",
+    "overall": 87,
+    "pace": 75,
+    "shooting": 61,
+    "passing": 91,
+    "defending": 54
+  },
+  {
+    "name": "Arturo Vidal",
+    "position": "MID",
+    "overall": 83,
+    "pace": 73,
+    "shooting": 57,
+    "passing": 87,
+    "defending": 56
+  },
+  {
+    "name": "Sergio Busquets",
+    "position": "MID",
+    "overall": 87,
+    "pace": 55,
+    "shooting": 40,
+    "passing": 87,
+    "defending": 77
+  },
+  {
+    "name": "Nemanja Matic",
+    "position": "MID",
+    "overall": 80,
+    "pace": 65,
+    "shooting": 51,
+    "passing": 85,
+    "defending": 75
+  },
+  {
+    "name": "Moises Caicedo",
+    "position": "MID",
+    "overall": 81,
+    "pace": 62,
+    "shooting": 44,
+    "passing": 85,
+    "defending": 66
+  },
+  {
+    "name": "Enzo Fernandez",
+    "position": "MID",
+    "overall": 83,
+    "pace": 74,
+    "shooting": 59,
+    "passing": 79,
+    "defending": 59
+  },
+  {
+    "name": "Aurelien Tchouameni",
+    "position": "MID",
+    "overall": 83,
+    "pace": 53,
+    "shooting": 43,
+    "passing": 82,
+    "defending": 79
+  },
+  {
+    "name": "Eduardo Camavinga",
+    "position": "MID",
+    "overall": 82,
+    "pace": 70,
+    "shooting": 62,
+    "passing": 84,
+    "defending": 61
+  },
+  {
+    "name": "Adrien Rabiot",
+    "position": "MID",
+    "overall": 78,
+    "pace": 70,
+    "shooting": 52,
+    "passing": 81,
+    "defending": 52
+  },
+  {
+    "name": "Marcel Sabitzer",
+    "position": "MID",
+    "overall": 77,
+    "pace": 62,
+    "shooting": 49,
+    "passing": 79,
+    "defending": 57
+  },
+  {
+    "name": "Leon Goretzka",
+    "position": "MID",
+    "overall": 82,
+    "pace": 63,
+    "shooting": 60,
+    "passing": 84,
+    "defending": 49
+  },
+  {
+    "name": "Dominik Szoboszlai",
+    "position": "MID",
+    "overall": 82,
+    "pace": 53,
+    "shooting": 61,
+    "passing": 77,
+    "defending": 46
+  },
+  {
+    "name": "Alexis Mac Allister",
+    "position": "MID",
+    "overall": 84,
+    "pace": 76,
+    "shooting": 63,
+    "passing": 87,
+    "defending": 61
+  },
+  {
+    "name": "Conor Gallagher",
+    "position": "MID",
+    "overall": 75,
+    "pace": 65,
+    "shooting": 53,
+    "passing": 73,
+    "defending": 47
+  },
+  {
+    "name": "Kalvin Phillips",
+    "position": "MID",
+    "overall": 75,
+    "pace": 54,
+    "shooting": 48,
+    "passing": 71,
+    "defending": 69
+  },
+  {
+    "name": "Jordan Henderson",
+    "position": "MID",
+    "overall": 77,
+    "pace": 60,
+    "shooting": 56,
+    "passing": 78,
+    "defending": 54
+  },
+  {
+    "name": "James Ward-Prowse",
+    "position": "MID",
+    "overall": 78,
+    "pace": 65,
+    "shooting": 68,
+    "passing": 81,
+    "defending": 47
+  },
+  {
+    "name": "Ross Barkley",
+    "position": "MID",
+    "overall": 70,
+    "pace": 60,
+    "shooting": 42,
+    "passing": 73,
+    "defending": 47
+  },
+  {
+    "name": "Jack Wilshere",
+    "position": "MID",
+    "overall": 71,
+    "pace": 57,
+    "shooting": 51,
+    "passing": 68,
+    "defending": 33
+  },
+  {
+    "name": "Harry Winks",
+    "position": "MID",
+    "overall": 67,
+    "pace": 47,
+    "shooting": 33,
+    "passing": 68,
+    "defending": 63
+  },
+  {
+    "name": "Jonjo Shelvey",
+    "position": "MID",
+    "overall": 69,
+    "pace": 54,
+    "shooting": 57,
+    "passing": 71,
+    "defending": 46
+  },
+  {
+    "name": "Lewis Cook",
+    "position": "MID",
+    "overall": 68,
+    "pace": 52,
+    "shooting": 42,
+    "passing": 67,
+    "defending": 41
+  },
+  {
+    "name": "Dale Stephens",
+    "position": "MID",
+    "overall": 61,
+    "pace": 36,
+    "shooting": 37,
+    "passing": 60,
+    "defending": 52
+  },
+  {
+    "name": "Jake Livermore",
+    "position": "MID",
+    "overall": 65,
+    "pace": 39,
+    "shooting": 37,
+    "passing": 66,
+    "defending": 61
+  },
+  {
+    "name": "Erling Haaland",
+    "position": "FWD",
+    "overall": 91,
+    "pace": 91,
+    "shooting": 92,
+    "passing": 62,
+    "defending": 17
+  },
+  {
+    "name": "Kylian Mbappe",
+    "position": "FWD",
+    "overall": 92,
+    "pace": 99,
+    "shooting": 92,
+    "passing": 65,
+    "defending": 28
+  },
+  {
+    "name": "Lionel Messi",
+    "position": "FWD",
+    "overall": 90,
+    "pace": 99,
+    "shooting": 86,
+    "passing": 70,
+    "defending": 23
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "position": "FWD",
+    "overall": 88,
+    "pace": 77,
+    "shooting": 84,
+    "passing": 59,
+    "defending": 26
+  },
+  {
+    "name": "Harry Kane",
+    "position": "FWD",
+    "overall": 90,
+    "pace": 80,
+    "shooting": 92,
+    "passing": 53,
+    "defending": 17
+  },
+  {
+    "name": "Robert Lewandowski",
+    "position": "FWD",
+    "overall": 89,
+    "pace": 83,
+    "shooting": 84,
+    "passing": 58,
+    "defending": 12
+  },
+  {
+    "name": "Mohamed Salah",
+    "position": "FWD",
+    "overall": 89,
+    "pace": 88,
+    "shooting": 85,
+    "passing": 74,
+    "defending": 22
+  },
+  {
+    "name": "Vinicius Junior",
+    "position": "FWD",
+    "overall": 89,
+    "pace": 99,
+    "shooting": 85,
+    "passing": 61,
+    "defending": 13
+  },
+  {
+    "name": "Neymar Jr",
+    "position": "FWD",
+    "overall": 87,
+    "pace": 95,
+    "shooting": 82,
+    "passing": 70,
+    "defending": 24
+  },
+  {
+    "name": "Karim Benzema",
+    "position": "FWD",
+    "overall": 87,
+    "pace": 72,
+    "shooting": 81,
+    "passing": 60,
+    "defending": 23
+  },
+  {
+    "name": "Luis Suarez",
+    "position": "FWD",
+    "overall": 84,
+    "pace": 70,
+    "shooting": 85,
+    "passing": 54,
+    "defending": 15
+  },
+  {
+    "name": "Sadio Mane",
+    "position": "FWD",
+    "overall": 84,
+    "pace": 83,
+    "shooting": 86,
+    "passing": 64,
+    "defending": 24
+  },
+  {
+    "name": "Son Heung-min",
+    "position": "FWD",
+    "overall": 87,
+    "pace": 94,
+    "shooting": 86,
+    "passing": 73,
+    "defending": 20
+  },
+  {
+    "name": "Bukayo Saka",
+    "position": "FWD",
+    "overall": 87,
+    "pace": 84,
+    "shooting": 86,
+    "passing": 73,
+    "defending": 16
+  },
+  {
+    "name": "Phil Foden",
+    "position": "FWD",
+    "overall": 86,
+    "pace": 93,
+    "shooting": 83,
+    "passing": 71,
+    "defending": 16
+  },
+  {
+    "name": "Rafael Leao",
+    "position": "FWD",
+    "overall": 85,
+    "pace": 85,
+    "shooting": 85,
+    "passing": 61,
+    "defending": 25
+  },
+  {
+    "name": "Victor Osimhen",
+    "position": "FWD",
+    "overall": 87,
+    "pace": 81,
+    "shooting": 89,
+    "passing": 56,
+    "defending": 12
+  },
+  {
+    "name": "Ousmane Dembele",
+    "position": "FWD",
+    "overall": 83,
+    "pace": 81,
+    "shooting": 87,
+    "passing": 69,
+    "defending": 11
+  },
+  {
+    "name": "Marcus Rashford",
+    "position": "FWD",
+    "overall": 83,
+    "pace": 90,
+    "shooting": 77,
+    "passing": 58,
+    "defending": 21
+  },
+  {
+    "name": "Gabriel Jesus",
+    "position": "FWD",
+    "overall": 79,
+    "pace": 78,
+    "shooting": 83,
+    "passing": 56,
+    "defending": 14
+  },
+  {
+    "name": "Darwin Nunez",
+    "position": "FWD",
+    "overall": 81,
+    "pace": 79,
+    "shooting": 80,
+    "passing": 56,
+    "defending": 25
+  },
+  {
+    "name": "Julian Alvarez",
+    "position": "FWD",
+    "overall": 84,
+    "pace": 80,
+    "shooting": 81,
+    "passing": 48,
+    "defending": 17
+  },
+  {
+    "name": "Ollie Watkins",
+    "position": "FWD",
+    "overall": 82,
+    "pace": 74,
+    "shooting": 87,
+    "passing": 54,
+    "defending": 28
+  },
+  {
+    "name": "Alexander Isak",
+    "position": "FWD",
+    "overall": 83,
+    "pace": 76,
+    "shooting": 79,
+    "passing": 56,
+    "defending": 14
+  },
+  {
+    "name": "Dominic Solanke",
+    "position": "FWD",
+    "overall": 75,
+    "pace": 39,
+    "shooting": 74,
+    "passing": 48,
+    "defending": 19
+  },
+  {
+    "name": "Ivan Toney",
+    "position": "FWD",
+    "overall": 80,
+    "pace": 45,
+    "shooting": 76,
+    "passing": 43,
+    "defending": 26
+  },
+  {
+    "name": "Jarrod Bowen",
+    "position": "FWD",
+    "overall": 80,
+    "pace": 80,
+    "shooting": 78,
+    "passing": 55,
+    "defending": 18
+  },
+  {
+    "name": "Callum Wilson",
+    "position": "FWD",
+    "overall": 77,
+    "pace": 64,
+    "shooting": 82,
+    "passing": 46,
+    "defending": 21
+  },
+  {
+    "name": "Danny Welbeck",
+    "position": "FWD",
+    "overall": 73,
+    "pace": 35,
+    "shooting": 72,
+    "passing": 38,
+    "defending": 24
+  },
+  {
+    "name": "Chris Wood",
+    "position": "FWD",
+    "overall": 72,
+    "pace": 43,
+    "shooting": 76,
+    "passing": 48,
+    "defending": 25
+  },
+  {
+    "name": "Ademola Lookman",
+    "position": "FWD",
+    "overall": 79,
+    "pace": 80,
+    "shooting": 83,
+    "passing": 65,
+    "defending": 10
+  },
+  {
+    "name": "Nicolas Jackson",
+    "position": "FWD",
+    "overall": 76,
+    "pace": 72,
+    "shooting": 79,
+    "passing": 46,
+    "defending": 14
+  },
+  {
+    "name": "Evan Ferguson",
+    "position": "FWD",
+    "overall": 76,
+    "pace": 74,
+    "shooting": 79,
+    "passing": 45,
+    "defending": 26
+  },
+  {
+    "name": "Che Adams",
+    "position": "FWD",
+    "overall": 71,
+    "pace": 45,
+    "shooting": 65,
+    "passing": 39,
+    "defending": 8
+  },
+  {
+    "name": "Wilfried Zaha",
+    "position": "FWD",
+    "overall": 78,
+    "pace": 81,
+    "shooting": 78,
+    "passing": 65,
+    "defending": 15
+  },
+  {
+    "name": "Raheem Sterling",
+    "position": "FWD",
+    "overall": 82,
+    "pace": 87,
+    "shooting": 78,
+    "passing": 63,
+    "defending": 16
+  },
+  {
+    "name": "Jack Grealish",
+    "position": "FWD",
+    "overall": 82,
+    "pace": 88,
+    "shooting": 85,
+    "passing": 57,
+    "defending": 21
+  },
+  {
+    "name": "Riyad Mahrez",
+    "position": "FWD",
+    "overall": 81,
+    "pace": 86,
+    "shooting": 80,
+    "passing": 69,
+    "defending": 25
+  },
+  {
+    "name": "Willian Borges",
+    "position": "FWD",
+    "overall": 72,
+    "pace": 78,
+    "shooting": 67,
+    "passing": 55,
+    "defending": 24
+  },
+  {
+    "name": "Jay Rodriguez",
+    "position": "FWD",
+    "overall": 65,
+    "pace": 30,
+    "shooting": 64,
+    "passing": 35,
+    "defending": 24
+  }
+]

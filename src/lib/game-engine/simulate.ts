@@ -267,9 +267,7 @@ function computePlayerOfMatch(
   return byName.get(best.name) ?? best;
 }
 
-export function simulateMatch(userSquad: Player[], playerPool: Player[]): MatchResult {
-  const opponentSquad = pickOpponentSquad(userSquad, playerPool);
-
+export function simulateMatch(userSquad: Player[], opponentSquad: Player[]): MatchResult {
   const userAttack = attackRating(userSquad);
   const userDefense = defenseRating(userSquad);
   const opponentAttack = attackRating(opponentSquad);

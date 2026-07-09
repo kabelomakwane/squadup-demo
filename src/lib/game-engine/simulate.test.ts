@@ -39,6 +39,16 @@ function buildUserSquad(): Player[] {
   ];
 }
 
+function buildOpponentSquad(): Player[] {
+  return [
+    makePlayer("o-gk", "GK", { defending: 74, shooting: 5 }),
+    makePlayer("o-def", "DEF", { defending: 72 }),
+    makePlayer("o-mid1", "MID", { passing: 70 }),
+    makePlayer("o-mid2", "MID", { passing: 68 }),
+    makePlayer("o-fwd", "FWD", { shooting: 76, pace: 80 }),
+  ];
+}
+
 describe("pickOpponentSquad", () => {
   it("always returns 5 distinct players excluding the user's squad", () => {
     const pool = buildPool(80);
@@ -57,10 +67,10 @@ describe("pickOpponentSquad", () => {
 });
 
 describe("simulateMatch", () => {
-  const pool = buildPool(80);
+  const opponentSquad = buildOpponentSquad();
 
   it("produces non-negative scores and a full 5-a-side opponent", () => {
-    const result = simulateMatch(buildUserSquad(), pool);
+    const result = simulateMatch(buildUserSquad(), opponentSquad);
 
     expect(result.userScore).toBeGreaterThanOrEqual(0);
     expect(result.opponentScore).toBeGreaterThanOrEqual(0);
@@ -68,7 +78,7 @@ describe("simulateMatch", () => {
   });
 
   it("orders events by strictly non-decreasing minuteInGame across both halves (0-30)", () => {
-    const result = simulateMatch(buildUserSquad(), pool);
+    const result = simulateMatch(buildUserSquad(), opponentSquad);
 
     for (let i = 1; i < result.events.length; i++) {
       expect(result.events[i].minuteInGame).toBeGreaterThanOrEqual(result.events[i - 1].minuteInGame);
@@ -80,7 +90,7 @@ describe("simulateMatch", () => {
   });
 
   it("names a specific acting player on every non-half-time event", () => {
-    const result = simulateMatch(buildUserSquad(), pool);
+    const result = simulateMatch(buildUserSquad(), opponentSquad);
 
     for (const event of result.events) {
       if (event.type === "half-time") continue;
@@ -89,7 +99,7 @@ describe("simulateMatch", () => {
   });
 
   it("keeps stats within valid ranges", () => {
-    const result = simulateMatch(buildUserSquad(), pool);
+    const result = simulateMatch(buildUserSquad(), opponentSquad);
     const { stats } = result;
 
     expect(stats.possession.user + stats.possession.opponent).toBe(100);
@@ -108,15 +118,20 @@ describe("simulateMatch", () => {
 
   it("picks a player of the match from one of the two squads", () => {
     const userSquad = buildUserSquad();
-    const result = simulateMatch(userSquad, pool);
+    const result = simulateMatch(userSquad, opponentSquad);
 
-    const allNames = new Set([...userSquad, ...result.opponent].map((p) => p.name));
+    const allNames = new Set([...userSquad, ...opponentSquad].map((p) => p.name));
     expect(allNames.has(result.playerOfMatch.name)).toBe(true);
   });
 
   it("is stable across repeated runs (no crashes, always resolves)", () => {
     for (let i = 0; i < 25; i++) {
-      expect(() => simulateMatch(buildUserSquad(), pool)).not.toThrow();
+      expect(() => simulateMatch(buildUserSquad(), opponentSquad)).not.toThrow();
     }
+  });
+
+  it("uses the exact opponent squad passed in, unchanged", () => {
+    const result = simulateMatch(buildUserSquad(), opponentSquad);
+    expect(result.opponent).toEqual(opponentSquad);
   });
 });

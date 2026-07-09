@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { superSport } from "@/lib/fonts";
 import { AuthProvider } from "@/providers/AuthProvider";
+import { ToastProvider } from "@/providers/ToastProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${superSport.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-brand-blue text-white">
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <ToastProvider>{children}</ToastProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { PillButton } from "@/components/ui/PillButton";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
+import { useAuth } from "@/providers/AuthProvider";
 
 function GoogleIcon() {
   return (
@@ -49,6 +50,7 @@ function AppleIcon() {
 
 export default function AuthPage() {
   const router = useRouter();
+  const { enableDemoMode } = useAuth();
   const [manualOpen, setManualOpen] = useState(false);
   const [mode, setMode] = useState<"sign-in" | "sign-up">("sign-in");
   const [email, setEmail] = useState("");
@@ -174,6 +176,26 @@ export default function AuthPage() {
               {submitting ? "Please wait..." : mode === "sign-in" ? "Sign In" : "Sign Up"}
             </PillButton>
           </form>
+        )}
+
+        {!isSupabaseConfigured && (
+          <div className="mx-auto mt-8 max-w-md border-t border-white/20 pt-6">
+            <p className="text-xs text-white/60">
+              No Supabase project connected yet, so real sign-in isn&apos;t available in this
+              deployment.
+            </p>
+            <div className="mt-3">
+              <PillButton
+                variant="outline"
+                onClick={() => {
+                  enableDemoMode();
+                  router.push("/match/loading");
+                }}
+              >
+                Skip Sign-In (Demo)
+              </PillButton>
+            </div>
+          </div>
         )}
       </div>
     </main>

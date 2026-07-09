@@ -8,14 +8,16 @@ import { useSquadStore } from "@/store/squadStore";
 import { useMatchStore } from "@/store/matchStore";
 import { useAuth } from "@/providers/AuthProvider";
 import { getPlayerPool } from "@/lib/players";
-import { simulateMatch } from "@/lib/game-engine/simulate";
+import { simulateMatch, pickOpponentSquad } from "@/lib/game-engine/simulate";
 import { createClient } from "@/lib/supabase/client";
 import type { Player } from "@/lib/game-engine/types";
 
 export default function MatchLoadingPage() {
   const router = useRouter();
-  const squad = useSquadStore((s) => s.squad);
-  const isComplete = useSquadStore((s) => s.isComplete);
+  const mode = useSquadStore((s) => s.mode);
+  const home = useSquadStore((s) => s.home);
+  const away = useSquadStore((s) => s.away);
+  const isReadyToPlay = useSquadStore((s) => s.isReadyToPlay);
   const { setResult } = useMatchStore();
   const { user } = useAuth();
   const started = useRef(false);
@@ -23,16 +25,25 @@ export default function MatchLoadingPage() {
   useEffect(() => {
     if (started.current) return;
 
-    if (!isComplete()) {
+    if (!isReadyToPlay()) {
       router.replace("/team-picker");
       return;
     }
     started.current = true;
 
     (async () => {
-      const pool = await getPlayerPool();
-      const userSquad = useSquadStore.getState().squad as Player[];
-      const result = simulateMatch(userSquad, pool);
+      const state = useSquadStore.getState();
+      const homeSquad = state.home.squad as Player[];
+
+      let opponentSquad: Player[];
+      if (state.mode === "head-to-head") {
+        opponentSquad = state.away.squad as Player[];
+      } else {
+        const pool = await getPlayerPool();
+        opponentSquad = pickOpponentSquad(homeSquad, pool);
+      }
+
+      const result = simulateMatch(homeSquad, opponentSquad);
 
       let resultId: string | null = null;
       if (user) {
@@ -42,7 +53,7 @@ export default function MatchLoadingPage() {
             .from("match_results")
             .insert({
               user_id: user.id,
-              squad_player_ids: userSquad.map((p) => p.id),
+              squad_player_ids: homeSquad.map((p) => p.id),
               opponent_snapshot: result.opponent,
               user_score: result.userScore,
               opponent_score: result.opponentScore,
@@ -62,13 +73,18 @@ export default function MatchLoadingPage() {
 
       setTimeout(() => router.push("/match/live"), 1600);
     })();
-  }, [isComplete, router, setResult, squad, user]);
+  }, [isReadyToPlay, router, setResult, user, home, away]);
 
   return (
     <main className="relative flex flex-1 flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-brand-blue to-brand-blue-bright px-6 py-16 text-center">
       <BigWordBackdrop />
       <div className="relative z-10">
         <Logo size="lg" />
+        <div className="mt-6 flex items-center justify-center gap-4 font-display text-title font-black italic uppercase text-white">
+          <span>{home.name || "Home"}</span>
+          <span className="text-brand-yellow">vs</span>
+          <span>{mode === "head-to-head" ? away.name || "Away" : "Opponent"}</span>
+        </div>
         <p className="mx-auto mt-10 max-w-xl text-sm font-bold text-white">
           Players are out on the pitch warming up. Fans are in full voice, commentators are ready
           — kick-off is just moments away.

@@ -1,23 +1,24 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { ScoreBug } from "@/components/ui/ScoreBug";
 import { PillButton } from "@/components/ui/PillButton";
 import { StatBar } from "@/components/ui/StatBar";
 import { SquadRow } from "@/components/ui/SquadRow";
+import { ShareModal } from "@/components/match/ShareModal";
 import { useMatchStore } from "@/store/matchStore";
 import { useSquadStore } from "@/store/squadStore";
 import { createClient } from "@/lib/supabase/client";
-import { shareResult } from "@/lib/share";
+import { computeContributions, contributionMarks } from "@/lib/game-engine/contributions";
 import type { MatchResult, Player } from "@/lib/game-engine/types";
 
-function recapBlurb(result: MatchResult, home: string): string {
+function recapBlurb(result: MatchResult, home: string, away: string): string {
   const winner =
-    result.userScore === result.opponentScore ? null : result.userScore > result.opponentScore ? home : "the opponent";
+    result.userScore === result.opponentScore ? null : result.userScore > result.opponentScore ? home : away;
   const possessionLeader =
-    result.stats.possession.user >= result.stats.possession.opponent ? home : "the opponent";
+    result.stats.possession.user >= result.stats.possession.opponent ? home : away;
   const potm = result.playerOfMatch.name;
 
   if (!winner) {
@@ -32,12 +33,15 @@ function MatchSummaryContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
   const { result, reset: resetMatch } = useMatchStore();
-  const { teamName, squad, reset: resetSquad } = useSquadStore();
+  const mode = useSquadStore((s) => s.mode);
+  const home = useSquadStore((s) => s.home);
+  const away = useSquadStore((s) => s.away);
+  const resetSquad = useSquadStore((s) => s.reset);
 
   const [remoteResult, setRemoteResult] = useState<MatchResult | null>(null);
   const [remoteSquad, setRemoteSquad] = useState<Player[] | null>(null);
-  const [shareStatus, setShareStatus] = useState<string | null>(null);
   const [notFound, setNotFound] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
 
   useEffect(() => {
     if (result || !id) return;
@@ -68,7 +72,12 @@ function MatchSummaryContent() {
   }, [id, result]);
 
   const activeResult = result ?? remoteResult;
-  const activeSquad = result ? (squad as Player[]) : remoteSquad;
+  const activeSquad = result ? (home.squad as Player[]) : remoteSquad;
+
+  const contributions = useMemo(
+    () => (activeResult ? computeContributions(activeResult.events) : new Map()),
+    [activeResult],
+  );
 
   if (!activeResult || !activeSquad) {
     if (notFound) {
@@ -85,7 +94,8 @@ function MatchSummaryContent() {
     return null;
   }
 
-  const home = teamName || "Your Squad";
+  const homeName = home.name || "Your Squad";
+  const awayName = mode === "head-to-head" ? away.name || "Opponent" : "Opponent";
   const homeSquadOrdered = [...activeSquad].reverse();
   const awaySquadOrdered = [...activeResult.opponent].reverse();
 
@@ -93,17 +103,8 @@ function MatchSummaryContent() {
     activeResult.userScore === activeResult.opponentScore
       ? "It ends all square in a hard-fought draw!"
       : activeResult.userScore > activeResult.opponentScore
-        ? `${home} takes the victory in an absolute scorcher!`
-        : "The opponent snatches the win — back to the drawing board!";
-
-  async function handleShare() {
-    const status = await shareResult({
-      title: "Squad Up",
-      text: `${home} ${activeResult!.userScore} - ${activeResult!.opponentScore} Opponent`,
-      url: typeof window !== "undefined" ? window.location.href : "",
-    });
-    setShareStatus(status === "copied" ? "Link copied!" : status === "shared" ? "Shared!" : null);
-  }
+        ? `${homeName} takes the victory in an absolute scorcher!`
+        : `${awayName} snatches the win — back to the drawing board!`;
 
   function handleNewGame() {
     resetMatch();
@@ -117,8 +118,8 @@ function MatchSummaryContent() {
 
       <div className="mt-8">
         <ScoreBug
-          homeName={home}
-          awayName="Opponent"
+          homeName={homeName}
+          awayName={awayName}
           homeScore={activeResult.userScore}
           awayScore={activeResult.opponentScore}
           clock="FT"
@@ -132,7 +133,7 @@ function MatchSummaryContent() {
       <div className="mt-10 grid w-full max-w-5xl grid-cols-1 gap-8 lg:grid-cols-[1fr_auto_1fr]">
         <div className="space-y-3">
           {homeSquadOrdered.map((player) => (
-            <SquadRow key={player.id} player={player} />
+            <SquadRow key={player.id} player={player} marks={contributionMarks(contributions.get(player.name))} />
           ))}
         </div>
 
@@ -169,7 +170,7 @@ function MatchSummaryContent() {
 
         <div className="space-y-3">
           {awaySquadOrdered.map((player) => (
-            <SquadRow key={player.id} player={player} />
+            <SquadRow key={player.id} player={player} marks={contributionMarks(contributions.get(player.name))} />
           ))}
         </div>
       </div>
@@ -178,18 +179,33 @@ function MatchSummaryContent() {
         <p className="font-display text-lg font-black italic uppercase text-white">
           Player of the Match <span className="text-brand-yellow">{activeResult.playerOfMatch.name}</span>
         </p>
-        <p className="mt-4 text-sm text-white/80">{recapBlurb(activeResult, home)}</p>
+        <p className="mt-4 text-sm text-white/80">{recapBlurb(activeResult, homeName, awayName)}</p>
       </div>
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
         <div className="w-full sm:w-56">
-          <PillButton onClick={handleShare}>Share Results</PillButton>
+          <PillButton onClick={() => setShareOpen(true)}>Share Match Results</PillButton>
         </div>
         <div className="w-full sm:w-56">
           <PillButton onClick={handleNewGame}>New Game</PillButton>
         </div>
       </div>
-      {shareStatus && <p className="mt-3 text-sm font-bold text-brand-yellow">{shareStatus}</p>}
+
+      <ShareModal
+        open={shareOpen}
+        onClose={() => setShareOpen(false)}
+        data={{
+          homeName,
+          awayName,
+          homeScore: activeResult.userScore,
+          awayScore: activeResult.opponentScore,
+          homeSquad: activeSquad,
+          awaySquad: activeResult.opponent,
+          headline,
+          description: recapBlurb(activeResult, homeName, awayName),
+          contributions,
+        }}
+      />
     </main>
   );
 }

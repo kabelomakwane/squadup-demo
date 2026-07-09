@@ -7,116 +7,137 @@ import { Card } from "@/components/ui/Card";
 import { PillButton } from "@/components/ui/PillButton";
 import { useMatchStore } from "@/store/matchStore";
 import { useSquadStore } from "@/store/squadStore";
-import type { MatchEvent } from "@/lib/game-engine/types";
+import { scheduleEvents, matchClockLabel, FULL_TIME_MS, type PacedEvent } from "@/lib/game-engine/pacing";
 
-const TOTAL_MINUTES = 30;
-const TOTAL_MS = 60_000;
-
-function cardTeam(event: MatchEvent): "user" | "opponent" | "default" {
+function cardTeam(event: PacedEvent): "user" | "opponent" | "default" {
   if (event.type !== "goal") return "default";
   return event.team === "user" ? "user" : "opponent";
+}
+
+function EventCard({ event, featured }: { event: PacedEvent; featured: boolean }) {
+  return (
+    <Card team={cardTeam(event)} className={featured ? "animate-event-in" : "opacity-70"}>
+      {event.type === "goal" ? (
+        <>
+          <p className={featured ? "font-display text-xl font-black italic uppercase" : "font-display text-sm font-black italic uppercase"}>
+            Goooooooooooal!
+          </p>
+          <p className={featured ? "mt-1 text-sm" : "mt-1 text-xs"}>{event.text}</p>
+          {featured && (
+            <div className="mt-2 flex flex-wrap gap-4 text-xs font-bold">
+              {event.actingPlayer && <span>⚽ {event.actingPlayer}</span>}
+              {event.secondaryPlayer && <span>👟 {event.secondaryPlayer}</span>}
+            </div>
+          )}
+        </>
+      ) : (
+        <p className={featured ? "text-base" : "text-xs"}>{event.text}</p>
+      )}
+    </Card>
+  );
 }
 
 export default function MatchLivePage() {
   const router = useRouter();
   const { result } = useMatchStore();
-  const { teamName } = useSquadStore();
+  const mode = useSquadStore((s) => s.mode);
+  const home = useSquadStore((s) => s.home);
+  const away = useSquadStore((s) => s.away);
 
-  const [visibleCount, setVisibleCount] = useState(0);
+  const pacedEvents = useMemo(() => (result ? scheduleEvents(result.events) : []), [result]);
+
   const [elapsedMs, setElapsedMs] = useState(0);
-  const timeouts = useRef<ReturnType<typeof setTimeout>[]>([]);
-  const advanceTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [paused, setPaused] = useState(false);
+  const startedAtRef = useRef<number | null>(null);
+  const tickRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     if (!result) {
       router.replace("/team-picker");
-      return;
     }
-
-    const scheduled = result.events.map((event, index) => {
-      const delay = (event.minuteInGame / TOTAL_MINUTES) * TOTAL_MS;
-      return setTimeout(() => setVisibleCount((c) => Math.max(c, index + 1)), delay);
-    });
-    timeouts.current = scheduled;
-
-    const clockInterval = setInterval(() => setElapsedMs((t) => t + 250), 250);
-
-    const advance = setTimeout(() => router.push("/match/end"), TOTAL_MS + 800);
-    advanceTimeout.current = advance;
-
-    return () => {
-      scheduled.forEach(clearTimeout);
-      clearInterval(clockInterval);
-      clearTimeout(advance);
-    };
   }, [result, router]);
 
-  const visibleEvents = useMemo(
-    () => (result ? result.events.slice(0, visibleCount) : []),
-    [result, visibleCount],
-  );
+  useEffect(() => {
+    if (!result || paused) return;
 
-  const runningScore = useMemo(() => {
-    let user = 0;
-    let opponent = 0;
-    for (const event of visibleEvents) {
-      if (event.type === "goal") {
-        if (event.team === "user") user += 1;
-        else opponent += 1;
+    startedAtRef.current = Date.now() - elapsedMs;
+    tickRef.current = setInterval(() => {
+      const next = Math.min(FULL_TIME_MS, Date.now() - (startedAtRef.current ?? Date.now()));
+      setElapsedMs(next);
+      if (next >= FULL_TIME_MS) {
+        if (tickRef.current) clearInterval(tickRef.current);
+        router.push("/match/end");
       }
+    }, 100);
+
+    return () => {
+      if (tickRef.current) clearInterval(tickRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [result, paused]);
+
+  const visibleEvents = useMemo(
+    () => pacedEvents.filter((event) => event.atMs <= elapsedMs),
+    [pacedEvents, elapsedMs],
+  );
+  const featured = visibleEvents[visibleEvents.length - 1];
+  const history = visibleEvents.slice(0, -1).reverse().slice(0, 4);
+
+  let runningUserScore = 0;
+  let runningOpponentScore = 0;
+  for (const event of visibleEvents) {
+    if (event.type === "goal") {
+      if (event.team === "user") runningUserScore += 1;
+      else runningOpponentScore += 1;
     }
-    return { user, opponent };
-  }, [visibleEvents]);
+  }
 
   if (!result) return null;
 
-  const gameMinute = Math.min(TOTAL_MINUTES, Math.floor((elapsedMs / TOTAL_MS) * TOTAL_MINUTES));
-  const clock = gameMinute >= TOTAL_MINUTES ? "FT" : `${gameMinute}'`;
-
-  function skipToEnd() {
-    timeouts.current.forEach(clearTimeout);
-    if (advanceTimeout.current) clearTimeout(advanceTimeout.current);
-    router.push("/match/end");
-  }
+  const awayName = mode === "head-to-head" ? away.name || "Away" : "Opponent";
 
   return (
     <main className="flex flex-1 flex-col items-center bg-brand-blue px-6 py-10">
       <ScoreBug
-        homeName={teamName || "HOME"}
-        awayName="OPPONENT"
-        homeScore={runningScore.user}
-        awayScore={runningScore.opponent}
-        clock={clock}
+        homeName={home.name || "Home"}
+        awayName={awayName}
+        homeScore={runningUserScore}
+        awayScore={runningOpponentScore}
+        clock={matchClockLabel(elapsedMs)}
       />
 
-      <div className="mt-6 w-full max-w-md">
-        <PillButton onClick={skipToEnd}>Skip to Final Result</PillButton>
+      <div className="mt-6 flex w-full max-w-md gap-3">
+        <PillButton variant="outline" onClick={() => setPaused((p) => !p)}>
+          {paused ? "Resume" : "Pause"}
+        </PillButton>
+        <PillButton onClick={() => router.push("/match/fast-forward")}>Skip to Final Result</PillButton>
       </div>
 
       <div className="mt-8 w-full max-w-2xl space-y-3 pb-10">
-        {visibleEvents.map((event, i) => (
-          <div key={i} className="flex items-start gap-3">
+        {featured && (
+          <div className="flex items-start gap-3">
             <span className="w-10 shrink-0 pt-3 text-right text-xs font-bold text-white/70">
-              {event.minuteInGame}&apos;
+              {featured.minuteInGame}&apos;
             </span>
-            <Card team={cardTeam(event)} className="flex-1">
-              {event.type === "goal" ? (
-                <>
-                  <p className="font-display text-lg font-black italic uppercase">
-                    Goooooooooooal!
-                  </p>
-                  <p className="mt-1 text-sm">{event.text}</p>
-                  <div className="mt-2 flex flex-wrap gap-4 text-xs font-bold">
-                    {event.actingPlayer && <span>⚽ {event.actingPlayer}</span>}
-                    {event.secondaryPlayer && <span>👟 {event.secondaryPlayer}</span>}
-                  </div>
-                </>
-              ) : (
-                <p className="text-sm">{event.text}</p>
-              )}
-            </Card>
+            <div className="flex-1">
+              <EventCard event={featured} featured />
+            </div>
           </div>
-        ))}
+        )}
+        {history.length > 0 && (
+          <div className="space-y-2">
+            {history.map((event, i) => (
+              <div key={i} className="flex items-start gap-3">
+                <span className="w-10 shrink-0 pt-2 text-right text-[10px] font-bold text-white/50">
+                  {event.minuteInGame}&apos;
+                </span>
+                <div className="flex-1">
+                  <EventCard event={event} featured={false} />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </main>
   );

@@ -9,7 +9,9 @@ import { useSquadStore } from "@/store/squadStore";
 export default function MatchEndPage() {
   const router = useRouter();
   const { result, resultId } = useMatchStore();
-  const { teamName } = useSquadStore();
+  const mode = useSquadStore((s) => s.mode);
+  const home = useSquadStore((s) => s.home);
+  const away = useSquadStore((s) => s.away);
 
   useEffect(() => {
     if (!result) {
@@ -25,7 +27,8 @@ export default function MatchEndPage() {
 
   if (!result) return null;
 
-  const home = teamName || "Your Squad";
+  const homeName = home.name || "Your Squad";
+  const awayName = mode === "head-to-head" ? away.name || "Opponent" : "Opponent";
 
   return (
     <main className="relative flex flex-1 flex-col items-center justify-center gap-6 overflow-hidden bg-gradient-to-br from-brand-blue to-brand-blue-bright px-6 py-16">
@@ -37,7 +40,7 @@ export default function MatchEndPage() {
             Home
           </span>
           <span className="hidden max-w-xs truncate rounded-full border-2 border-brand-yellow px-6 py-3 font-display text-lg font-black italic uppercase text-white sm:block">
-            {home}
+            {homeName}
           </span>
         </div>
         <span className="shrink-0 font-display text-[5rem] font-black italic leading-none text-white sm:text-[7rem] lg:text-[9rem]">
@@ -51,7 +54,7 @@ export default function MatchEndPage() {
             Away
           </span>
           <span className="hidden max-w-xs truncate rounded-full border-2 border-brand-red px-6 py-3 font-display text-lg font-black italic uppercase text-white sm:block">
-            Opponent
+            {awayName}
           </span>
         </div>
         <span className="shrink-0 font-display text-[5rem] font-black italic leading-none text-white sm:text-[7rem] lg:text-[9rem]">

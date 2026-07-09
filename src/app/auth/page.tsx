@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { PillButton } from "@/components/ui/PillButton";
-import { createClient } from "@/lib/supabase/client";
+import { createClient, isSupabaseConfigured } from "@/lib/supabase/client";
 
 function GoogleIcon() {
   return (
@@ -59,6 +59,12 @@ export default function AuthPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
+
+    if (!isSupabaseConfigured) {
+      setError("Sign-in isn't configured yet — add your Supabase project keys to .env.local.");
+      return;
+    }
+
     setSubmitting(true);
 
     const supabase = createClient();

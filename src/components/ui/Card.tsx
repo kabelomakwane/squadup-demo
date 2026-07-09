@@ -3,10 +3,10 @@ import { clsx } from "@/lib/clsx";
 type Team = "user" | "opponent" | "neutral" | "default";
 
 const teamClasses: Record<Team, string> = {
-  user: "bg-brand-blue-bright text-white",
+  user: "bg-brand-yellow text-white",
   opponent: "bg-brand-red text-white",
   neutral: "bg-white text-black",
-  default: "bg-brand-blue-bright/50 text-white",
+  default: "bg-brand-blue-bright text-white",
 };
 
 export function Card({

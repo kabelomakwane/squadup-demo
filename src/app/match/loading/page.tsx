@@ -14,23 +14,24 @@ import type { Player } from "@/lib/game-engine/types";
 
 export default function MatchLoadingPage() {
   const router = useRouter();
-  const { squad, teamName, isComplete } = useSquadStore();
+  const squad = useSquadStore((s) => s.squad);
+  const isComplete = useSquadStore((s) => s.isComplete);
   const { setResult } = useMatchStore();
   const { user } = useAuth();
   const started = useRef(false);
 
   useEffect(() => {
     if (started.current) return;
-    started.current = true;
 
     if (!isComplete()) {
       router.replace("/team-picker");
       return;
     }
+    started.current = true;
 
     (async () => {
       const pool = await getPlayerPool();
-      const userSquad = squad as Player[];
+      const userSquad = useSquadStore.getState().squad as Player[];
       const result = simulateMatch(userSquad, pool);
 
       let resultId: string | null = null;
@@ -61,7 +62,7 @@ export default function MatchLoadingPage() {
 
       setTimeout(() => router.push("/match/live"), 1600);
     })();
-  }, [isComplete, router, setResult, squad, teamName, user]);
+  }, [isComplete, router, setResult, squad, user]);
 
   return (
     <main className="relative flex flex-1 flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-brand-blue to-brand-blue-bright px-6 py-16 text-center">

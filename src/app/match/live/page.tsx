@@ -33,24 +33,23 @@ export default function MatchLivePage() {
       return;
     }
 
-    result.events.forEach((event, index) => {
+    const scheduled = result.events.map((event, index) => {
       const delay = (event.minuteInGame / TOTAL_MINUTES) * TOTAL_MS;
-      timeouts.current.push(
-        setTimeout(() => setVisibleCount((c) => Math.max(c, index + 1)), delay),
-      );
+      return setTimeout(() => setVisibleCount((c) => Math.max(c, index + 1)), delay);
     });
+    timeouts.current = scheduled;
 
     const clockInterval = setInterval(() => setElapsedMs((t) => t + 250), 250);
 
-    advanceTimeout.current = setTimeout(() => router.push("/match/end"), TOTAL_MS + 800);
+    const advance = setTimeout(() => router.push("/match/end"), TOTAL_MS + 800);
+    advanceTimeout.current = advance;
 
     return () => {
-      timeouts.current.forEach(clearTimeout);
+      scheduled.forEach(clearTimeout);
       clearInterval(clockInterval);
-      if (advanceTimeout.current) clearTimeout(advanceTimeout.current);
+      clearTimeout(advance);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [result]);
+  }, [result, router]);
 
   const visibleEvents = useMemo(
     () => (result ? result.events.slice(0, visibleCount) : []),
@@ -107,6 +106,10 @@ export default function MatchLivePage() {
                     Goooooooooooal!
                   </p>
                   <p className="mt-1 text-sm">{event.text}</p>
+                  <div className="mt-2 flex flex-wrap gap-4 text-xs font-bold">
+                    {event.actingPlayer && <span>⚽ {event.actingPlayer}</span>}
+                    {event.secondaryPlayer && <span>👟 {event.secondaryPlayer}</span>}
+                  </div>
                 </>
               ) : (
                 <p className="text-sm">{event.text}</p>

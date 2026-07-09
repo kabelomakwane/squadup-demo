@@ -15,7 +15,7 @@ import type { Player } from "@/lib/game-engine/types";
 function TeamPickerContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { user, loading: authLoading } = useAuth();
+  const { isSignedIn, loading: authLoading } = useAuth();
   const { squad, teamName, setTeamName, setSlot, clearSlot, isComplete } = useSquadStore();
 
   const [players, setPlayers] = useState<Player[]>([]);
@@ -33,7 +33,7 @@ function TeamPickerContent() {
   function handlePlay() {
     if (!isComplete()) return;
     if (authLoading) return;
-    router.push(user ? "/match/loading" : "/auth");
+    router.push(isSignedIn ? "/match/loading" : "/auth");
   }
 
   return (

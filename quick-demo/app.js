@@ -4,7 +4,7 @@
   const PLAYERS = window.SQUAD_UP_PLAYERS || [];
   const POSITIONS = ["ST", "MID", "MID", "DEF", "GK"];
   const STORAGE_KEY = "squad-up-state-v1";
-  const MATCH_DURATION_MS = 150000;
+  const MATCH_DURATION_MS = 60000;
   const LOADING_BEAT_MS = 1800;
   const WINNER_REVEAL_MS = 5200;
   const COMMENTARY_MIN_MS = 4800;
@@ -450,13 +450,13 @@
       });
     };
 
-    scheduleHalf(firstHalf, 0, 71500);
+    scheduleHalf(firstHalf, 0, 28600);
     if (halftimeIndex >= 0) {
-      events[halftimeIndex].atMs = 75000;
-      events[halftimeIndex].displayMs = 5000;
+      events[halftimeIndex].atMs = 30000;
+      events[halftimeIndex].displayMs = 2000;
       events[halftimeIndex].displayMinute = 15;
     }
-    scheduleHalf(secondHalf, 79500, 146500);
+    scheduleHalf(secondHalf, 31800, 58600);
     if (fulltimeIndex >= 0) {
       events[fulltimeIndex].atMs = MATCH_DURATION_MS;
       events[fulltimeIndex].displayMs = 0;
@@ -736,7 +736,7 @@
 
   function formatMatchClock(elapsed) {
     const halfDuration = MATCH_DURATION_MS / 2;
-    const stoppageWindow = 5000;
+    const stoppageWindow = 2000;
     const regulationWindow = halfDuration - stoppageWindow;
     const inSecondHalf = elapsed >= halfDuration;
     const halfElapsed = inSecondHalf ? elapsed - halfDuration : elapsed;
@@ -755,7 +755,7 @@
   function scoreBugStatus() {
     if (state.paused) return { kind: "paused", text: "Paused" };
     const halfDuration = MATCH_DURATION_MS / 2;
-    if (state.elapsedMs >= halfDuration && state.elapsedMs < 79500) {
+    if (state.elapsedMs >= halfDuration && state.elapsedMs < 31800) {
       return { kind: "half-time", text: "Half Time" };
     }
     return { kind: "live", text: formatMatchClock(state.elapsedMs) };
